@@ -1,0 +1,1 @@
+# test_django_hightech_plant
