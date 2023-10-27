@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import MyUser
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import render, get_object_or_404, redirect
+
 
 
 def user_list(request):
@@ -19,3 +21,9 @@ def user_list(request):
                   {'users': users})
 
 
+def user_detail(request, user_id):
+    user = get_object_or_404(MyUser, id=user_id)
+
+    return render(request,
+                  'user_detail.html',
+                  {'user': user})
